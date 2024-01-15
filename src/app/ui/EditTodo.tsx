@@ -1,20 +1,20 @@
-'use client'
-
 import React, { useState } from 'react';
 import Input from "./Input";
 import Button from './Button';
 
 interface EditTodoProps {
   editTodo: (task: string, id: number) => void;
-  todo: { id: number; task: string; completed: boolean; isEditing: boolean };
+  todo: { id: number; task: string; completed: boolean; isEditing: boolean } | undefined;
 }
 
-export default function EditTodo({ editTodo, todo }: EditTodoProps) {
-  const [editedTask, setEditedTask] = useState<string>(todo.task);
+const EditTodo: React.FC<EditTodoProps> = ({ editTodo, todo }: EditTodoProps) => {
+  const [editedTask, setEditedTask] = useState<string>(todo?.task || '');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    editTodo(editedTask, todo.id);
+    if (todo) {
+      editTodo(editedTask, todo.id);
+    }
   };
 
   return (
@@ -36,3 +36,5 @@ export default function EditTodo({ editTodo, todo }: EditTodoProps) {
     </div>
   );
 }
+
+export default EditTodo;
