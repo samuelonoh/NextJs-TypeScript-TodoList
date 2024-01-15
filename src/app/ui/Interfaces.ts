@@ -1,8 +1,3 @@
-
-export interface ITask {
-    taskName: string;
-  }
-
   export interface ButtonProps {
     text?: string;
     style: string;
