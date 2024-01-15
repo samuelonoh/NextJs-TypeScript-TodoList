@@ -57,7 +57,7 @@ export default function Home() {
               todo.isEditing
                 ? null 
                 : (
-                  <li key={index} className="h-10 flex items-center gap-5 justify-center w-[100%] rounded-lg">
+                  <li key={todo.id} className="h-10 flex items-center gap-5 justify-center w-[100%] rounded-lg">
                     <p className='bg-white hover:bg-slate-400 md:w-[90%] sm:w-[80%] w-[100%] h-[50px] flex items-center justify-between rounded-lg'>{todo.task} <div className='flex items-center justify-between h-[50px] md:w-[20%] sm:gap-3'>
                       <Button text='Edit' style='w-[50px] h-[50px] bg-blue-500' onClick={() => editTodo(todo.id)} />
                       <Button text='Del' style='w-[50px] h-[50px] bg-red-500' onClick={() => deleteTodo(todo.id)} />
